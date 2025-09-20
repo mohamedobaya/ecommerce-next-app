@@ -1,3 +1,4 @@
+import React from "react";
 import Product from "@/components/Product";
 
 interface Product {
@@ -9,14 +10,17 @@ interface Product {
   image: string;
 }
 
-export default async function Home() {
+export default async function page() {
   const res = await fetch("https://fakestoreapi.com/products");
   const products = await res.json();
-  console.log(products);
+  const electronics = products.filter(
+    (p: Product) => p.category === "jewelery"
+  );
+  console.log(electronics);
 
   return (
     <div className="container grid grid-cols-3 mx-auto">
-      {products.map((product: Product) => (
+      {electronics.map((product: Product) => (
         <Product key={product.id} product={product} />
       ))}
     </div>
