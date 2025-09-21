@@ -15,10 +15,14 @@ export default function Navbar() {
       name: "Products",
       href: "/products",
     },
+    {
+      name: "Cart",
+      href: "/cart",
+    },
   ];
   return (
     <nav>
-      <ul className="grid grid-cols-3 p-5 bg-blue-900 text-white">
+      <ul className="flex justify-around p-5 bg-blue-900 text-white">
         {links.map(({ name, href }) => (
           <NavBtn key={name} href={href} name={name} />
         ))}

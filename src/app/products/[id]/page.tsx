@@ -1,11 +1,16 @@
 import React from "react";
 import Product from "@/components/Product";
 
-// error in console on refresh: ask instructor
+interface Props {
+  params: Promise<{
+    id: string;
+  }>;
+}
 
-export default async function page({ params }: { params: { id: string } }) {
-  console.log(params);
-  const res = await fetch(`https://fakestoreapi.com/products/${params.id}`);
+export default async function page({ params }: Props) {
+  const { id } = await params;
+
+  const res = await fetch(`https://fakestoreapi.com/products/${id}`);
   const product = await res.json();
   return (
     <div className="mx-auto my-10">

@@ -1,24 +1,5 @@
-import Product from "@/components/Product";
-
-interface Product {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-}
+import ProductList from "@/components/ProductList";
 
 export default async function Home() {
-  const res = await fetch("https://fakestoreapi.com/products");
-  const products = await res.json();
-  console.log(products);
-
-  return (
-    <div className="container grid grid-cols-3 mx-auto">
-      {products.map((product: Product) => (
-        <Product key={product.id} product={product} />
-      ))}
-    </div>
-  );
+  return <ProductList filteredValue={"all"} />;
 }
