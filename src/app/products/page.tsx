@@ -7,7 +7,8 @@ interface Props {
   searchParams: Promise<{ category: string }>;
 }
 
-export const revalidate = 10;
+export const revalidate = 10; // NOTE ask instructor
+
 export default async function page({ searchParams }: Props) {
   const { category } = await searchParams;
   const filteredValue = category ?? "all";

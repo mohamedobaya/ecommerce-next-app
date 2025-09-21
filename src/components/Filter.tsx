@@ -10,6 +10,7 @@ export default function Filter() {
   const handleFilter = (filter: string) => {
     const params = new URLSearchParams(searchParams.toString());
     params.set("category", filter);
+
     router.replace(`${pathName}?${params}`);
   };
   return (
